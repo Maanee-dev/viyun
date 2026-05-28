@@ -70,17 +70,24 @@ export default function Product() {
              ))}
           </div>
           
-          {/* Main Image */}
-          <div className="flex-1 overflow-hidden relative bg-transparent flex items-center justify-center p-4">
+          {/* Main Image (Desktop) */}
+          <div className="hidden md:flex flex-1 overflow-hidden relative bg-transparent items-center justify-center p-4">
             <img src={product.images[activeImage]} alt={product.name} className="w-full h-full object-contain mix-blend-multiply animate-in fade-in zoom-in-95 duration-500" key={activeImage} />
           </div>
 
-           {/* Mobile dots */}
-           <div className="flex md:hidden justify-center gap-2 py-4 border-t border-black bg-white select-none">
-             {product.images.map((_, i) => (
-                <div key={i} onClick={() => setActiveImage(i)} className={`w-2 h-2 rounded-full border border-black transition-colors ${activeImage === i ? 'bg-black' : 'bg-transparent'}`} />
-             ))}
-           </div>
+          {/* Main Images Scrollable (Mobile) */}
+          <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {product.images.map((img, i) => (
+              <div key={i} className="min-w-full h-[60vh] snap-center flex items-center justify-center p-4 shrink-0 relative">
+                <img src={img} alt={`${product.name} ${i}`} className="w-full h-full object-contain mix-blend-multiply" />
+                <div className="absolute bottom-4 left-0 w-full flex justify-center gap-2">
+                  {product.images.map((_, dotIdx) => (
+                    <div key={dotIdx} className={`w-1.5 h-1.5 rounded-full border border-black ${dotIdx === i ? 'bg-black' : 'bg-transparent'}`} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Product Details panel */}

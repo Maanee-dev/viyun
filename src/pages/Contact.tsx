@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Contact() {
+  useSEO({
+    title: 'Contact Us',
+    description: 'Get in touch with the VIYUN team for inquiries regarding sizing, availability, or recent orders.'
+  });
+
   return (
     <div className="w-full animate-in fade-in duration-500">
       <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">

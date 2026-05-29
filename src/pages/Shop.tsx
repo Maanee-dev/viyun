@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Shop() {
+  useSEO({
+    title: 'Shop',
+    description: 'Shop the complete VIYUN collection of streetwear, essentials, and modern apparel.'
+  });
+
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const location = useLocation();
 

@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { Upload, FileCheck2 } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Checkout() {
+  useSEO({
+    title: 'Secure Checkout',
+    description: 'Complete your purchase securely at VIYUN.'
+  });
+
   const { cart } = useCart();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);

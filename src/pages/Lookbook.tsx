@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Lookbook() {
+  useSEO({
+    title: 'Lookbook',
+    description: 'Explore Campaign 01: The Foundation. The latest editorial and styling inspiration from VIYUN.'
+  });
+
   const images = [
     'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&q=80&w=1200',
     'https://images.unsplash.com/photo-1492288991661-058aa541ff43?auto=format&fit=crop&q=80&w=1200',

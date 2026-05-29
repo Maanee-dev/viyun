@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Collections() {
+  useSEO({
+    title: 'Curated Collections',
+    description: 'Explore curated collections of summer essentials, minimal basics, and outerwear at VIYUN.'
+  });
+
   const collections = [
     {
       id: 1,

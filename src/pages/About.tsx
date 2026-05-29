@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function About() {
+  useSEO({
+    title: 'Our Philosophy',
+    description: 'Learn about the philosophy behind VIYUN. Bridging the gap between elevated luxury and everyday streetwear.'
+  });
+
   return (
     <div className="w-full animate-in fade-in duration-500">
       <div className="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">

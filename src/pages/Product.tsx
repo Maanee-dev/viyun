@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Product() {
   const { id } = useParams();
   const { addToCart } = useCart();
   
   const product = products.find(p => p.id === id);
+
+  useSEO({
+    title: product ? product.name : 'Product Not Found',
+    description: product ? product.description : 'Explore VIYUN collections.',
+  });
   
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedColor, setSelectedColor] = useState<string>('');

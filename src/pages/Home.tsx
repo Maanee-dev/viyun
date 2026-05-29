@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { ArrowRight } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Home() {
+  useSEO({
+    title: 'Home',
+    description: 'Explore the latest collection of contemporary streetwear and elevated essentials from VIYUN.'
+  });
+
   const newArrivals = products.filter(p => p.isNewArrival);
 
   const heroImages = [

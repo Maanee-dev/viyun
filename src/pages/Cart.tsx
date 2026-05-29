@@ -2,8 +2,14 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { X, ArrowRight } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export default function Cart() {
+  useSEO({
+    title: 'Shopping Bag',
+    description: 'Review your selected items in the VIYUN shopping bag.'
+  });
+
   const { cart, removeFromCart } = useCart();
   const navigate = useNavigate();
 
